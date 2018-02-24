@@ -95,7 +95,7 @@ const setParameters = (params) => {
 
   // Content as HTML
   if (params.html) {
-    dom.parseHtmlToContainer(params.html, content)
+    dom.parseHtmlToContainer(params.html, content, params.useCloneNode !== false)
 
   // Content as plain text
   } else if (params.text) {

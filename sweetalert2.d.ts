@@ -278,6 +278,14 @@ declare module 'sweetalert2' {
         html?: string | JQuery;
 
         /**
+         * A HTML description for the modal.
+         * Define use cloneNode method to set html content or not
+         *
+         * @default true
+         */
+        useCloneNode?: boolean;
+
+        /**
          * The footer of the modal, as HTML.
          *
          * @default null

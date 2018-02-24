@@ -189,7 +189,7 @@ export const getFocusableElements = () => {
   return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements))
 }
 
-export const parseHtmlToContainer = (param, target) => {
+export const parseHtmlToContainer = (param, target, useCloneNode) => {
   if (!param) {
     return hide(target)
   }
@@ -198,10 +198,10 @@ export const parseHtmlToContainer = (param, target) => {
     target.innerHTML = ''
     if (0 in param) {
       for (let i = 0; i in param; i++) {
-        target.appendChild(param[i].cloneNode(true))
+        target.appendChild(useCloneNode ? param[i].cloneNode(true) : param[i])
       }
     } else {
-      target.appendChild(param.cloneNode(true))
+      target.appendChild(useCloneNode ? param.cloneNode(true) : param)
     }
   } else if (param) {
     target.innerHTML = param
